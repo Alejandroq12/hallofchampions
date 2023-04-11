@@ -2,7 +2,7 @@
 
 
 <div align="center">
-  <img src="./assets/logo/todo.png" alt="logo" width="600"  height="auto" />
+  <img src="./assets/logo/logo.png" alt="logo" width="600"  height="auto" />
   <br/>
 
   <h3><b>Leaderboard</b></h3>
