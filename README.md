@@ -120,9 +120,9 @@ cd ..
 
 ### Install
 
-Install this project with:
+Install dependencies with:
 
-1. To use this project you have to install some dependencies and linters. To achieve just run:
+1. To use this project you have to install some dependencies and linters. To achieve it just run:
 
 
 ```
@@ -143,7 +143,8 @@ node_modules/
 
 To use this project locally on your computer, follow these steps:
 
-1. Clone the repository or download the project files and run:
+1. Run the following command:
+
    ```
    npm start
 
