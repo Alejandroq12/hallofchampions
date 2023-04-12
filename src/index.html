@@ -8,26 +8,28 @@
   </head>
   <body>
     <main class="leaderboard">
-      <header class="leaderboard-header">
-        <h1>Leaderboard</h1>
-      </header>
       <section class="leaderboard-scores">
-        <h2>Recent scores</h2>
-        <button
-          class="leaderboard-refresh__btn"
-          aria-label="Refresh recent scores"
-          type="reset"
-        >
-          Refresh
-        </button>
+        <div class="leaderboard-header">
+          <h1>Leaderboard</h1>
+        </div>
+        <div class="title-button">
+          <h2>Recent scores</h2>
+          <button
+            class="leaderboard-refresh__btn"
+            aria-label="Refresh recent scores"
+            type="reset"
+          >
+            Refresh
+          </button>
+        </div>
         <ul class="leaderboard-scores__list">
-          <li>Name: 100</li>
-          <li>Name: 20</li>
-          <li>Name: 50</li>
-          <li>Name: 78</li>
-          <li>Name: 125</li>
-          <li>Name: 77</li>
-          <li>Name: 42</li>
+          <li class="scores-li">Name: 100</li>
+          <li class="scores-li">Name: 20</li>
+          <li class="scores-li">Name: 50</li>
+          <li class="scores-li">Name: 78</li>
+          <li class="scores-li">Name: 125</li>
+          <li class="scores-li">Name: 77</li>
+          <li class="scores-li">Name: 42</li>
         </ul>
       </section>
       <section class="leaderboard-add__score">
@@ -47,7 +49,7 @@
             id="score"
             required
           />
-          <button type="submit" value="submit">Submit</button>
+          <button class="submit-scores__btn" type="submit" value="submit">Submit</button>
         </form>
       </section>
     </main>
