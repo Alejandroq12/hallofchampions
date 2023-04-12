@@ -1,0 +1,135 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --white-gray: #f5f5f5;
+  --light-gray: lightgray;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--white-gray);
+  font-size: 10px;
+}
+
+.leaderboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 22px 0 0 18px;
+}
+
+.leaderboard-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 25px;
+  font-size: 1.3rem;
+}
+
+.leaderboard-scores {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  padding: 0 0 0 35px;
+}
+
+.title-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 65%;
+  margin: 0 0 14px 0;
+}
+
+.title-button h2 {
+  font-size: 1.4rem;
+}
+
+.leaderboard-scores__list {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  width: 65%;
+}
+
+.leaderboard-scores__list .scores-li {
+  list-style: none;
+  margin: 4px 0 4px 0;
+  padding: 10px;
+}
+
+.leaderboard-scores__list .scores-li:nth-child(odd) {
+  background-color: var(--white-gray);
+}
+
+.leaderboard-scores__list .scores-li:nth-child(even) {
+  background-color: var(--light-gray);
+}
+
+.leaderboard-add__score {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 25px 0 0 35px;
+}
+
+.leaderboard-add__score h2 {
+  font-size: 1.3rem;
+  margin: 0 0 12px 0;
+}
+
+.leaderboard-form input {
+  width: 100%;
+  height: 30px;
+  margin: 0 0 25px 0;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 0 0 0 5px;
+}
+
+.submit-scores__btn {
+  display: flex;
+}
+
+@media screen and (min-width: 769px) {
+  .leaderboard {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    margin: 60px auto;
+    padding: 30px;
+  }
+
+  .leaderboard-scores {
+    margin: 0 -90px 0 0;
+  }
+
+  .leaderboard-header {
+    font-size: 2.2rem;
+    margin: 0 0 50px -65px;
+  }
+
+  .leaderboard-add__score {
+    margin: 110px 0 0 18px;
+  }
+
+  .title-button {
+    margin-bottom: 30px;
+  }
+
+  .leaderboard-add__score h2 {
+    margin-bottom: 32px;
+  }
+
+  .submit-scores__btn {
+    margin-left: auto;
+  }
+}
