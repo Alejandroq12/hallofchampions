@@ -23,8 +23,10 @@
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
     - [Install](#install)
+    - [Make sure to have the file called package.json](#make-sure-to-have-the-file-called-packagejson)
     - [Usage](#usage)
     - [Run tests](#run-tests)
+      - [Review the output of each linter and fix any issues reported.](#review-the-output-of-each-linter-and-fix-any-issues-reported)
     - [Deployment](#deployment)
   - [👥 Authors ](#-authors-)
   - [🔭 Future Features ](#-future-features-)
@@ -120,17 +122,17 @@ cd ..
 
 Install this project with:
 
-1. To view this project, no additional installation is required.
+1. To use this project you have to install some dependencies and linters. To achieve just run:
 
-2. However, if you want to test the linter configured for detecting errors or use Luxon library, complete the following steps:
 
 ```
 npm init -y
 npm install
 
 ```
+### Make sure to have the file called package.json
 
-3. If you run npm install, remember to create a .gitignore file to prevent the node_modules folder from being uploaded to GitHub:
+2. If you run npm install, remember to create a .gitignore file to prevent the node_modules folder from being uploaded to GitHub:
 
 ```
 .gitignore
@@ -141,17 +143,11 @@ node_modules/
 
 To use this project locally on your computer, follow these steps:
 
+1. Clone the repository or download the project files and run:
+   ```
+   npm start
 
-1. Clone the repository or download the project files.
-2. Navigate to the project directory where the index.html file is located.
-3. Open the index.html file with a web browser.
-- Optional: You can also use the Live Server extension for Visual Studio Code to view the website with live reloading.
-
--- Install the Live Server extension in Visual Studio Code.
-
--- Open the project folder in Visual Studio Code.
-
--- Right-click on the index.html file and select "Open with Live Server".
+   ```
 
 The website should now be displayed in your browser, and you can interact with the application as intended.
 
@@ -177,7 +173,7 @@ npx hint .
 
 ```
 
-1. Review the output of each linter and fix any issues reported.
+#### Review the output of each linter and fix any issues reported.
 
 ### Deployment
 
