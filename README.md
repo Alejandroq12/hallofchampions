@@ -68,7 +68,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://alejandroq12.github.io/to-do-list/)
+- [Live Demo Link](https://alejandroq12.github.io/leaderboard/dist/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -98,7 +98,7 @@ Clone this repository to your desired folder:
 
 1. Clone it using your terminal:
 ```
-git clone https://github.com/Alejandroq12/to-do-list.git
+git clone https://github.com/Alejandroq12/leaderboard.git
 ```
 
 2. If the previous method does not work you may also download the repo as a .zip file and once you decompress the .zip file you are ready to use it.
@@ -176,12 +176,8 @@ npx stylelint "**/*.css"
 npx hint .
 
 ```
-- For Jest:
-```
-npx jest
 
-```
-3. Review the output of each linter and fix any issues reported.
+1. Review the output of each linter and fix any issues reported.
 
 ### Deployment
 
