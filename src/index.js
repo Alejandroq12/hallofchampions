@@ -19,3 +19,9 @@ async function createNewGame(gameName) {
   const gameId = game.result.split(': ')[1];
   console.log('Game ID:', gameId);
 })();
+
+async function getScores(gameId) {
+  const response = await fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameId}/scores/`);
+  const result = await response.json();
+  return result.result;
+}
