@@ -54,4 +54,20 @@ async function createNewGame(gameName) {
     const result = await response.json();
     return result.result;
   }
+
+  const form = document.querySelector('.leaderboard-form');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const userName = document.getElementById('name').value;
+    const userScore = document.getElementById('score').value;
+
+    await saveScore(gameId, userName, userScore);
+
+    document.getElementById('name').value = '';
+    document.getElementById('score').value = '';
+
+    const scores = await getScores(gameId);
+    displayScores(scores);
+  });
 })();
