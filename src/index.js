@@ -25,3 +25,15 @@ async function getScores(gameId) {
   const result = await response.json();
   return result.result;
 }
+
+function displayScores(scores) {
+  const scoresList = document.querySelector('.leaderboard-scores__list');
+  scoresList.innerHTML = '';
+
+  scores.forEach((score) => {
+    const listItem = document.createElement('li');
+    listItem.classList.add('scores-li');
+    listItem.textContent = `${score.user}: ${score.score}`;
+    scoresList.appendChild(listItem);
+  });
+}
