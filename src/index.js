@@ -55,5 +55,6 @@ document
 
     await createNewScore(name, score);
     event.target.reset();
-    refreshScores();
+  // refreshScores(); if this lines is uncommented,
+  // the scores will be refreshed after each submission
   });
