@@ -87,7 +87,7 @@ body {
 }
 
 .leaderboard-add__score h2 {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   margin: 0 0 12px 0;
 }
 
@@ -97,7 +97,7 @@ body {
   margin: 0 0 25px 0;
   border: 2px solid black;
   border-radius: 5px;
-  padding: 0 0 0 5px;
+  padding: 5px;
 }
 
 .submit-scores__btn {
@@ -110,7 +110,6 @@ button {
   align-items: center;
   width: 100px;
   height: 40px;
-  border: 2px solid black;
   border-radius: 5px;
   background-color: var(--light-blue);
   font-size: 1.2rem;
