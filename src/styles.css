@@ -30,6 +30,26 @@ body {
   align-items: center;
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(20px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
 .leaderboard {
   display: block;
   flex-direction: column;
@@ -41,6 +61,7 @@ body {
   overflow: hidden;
   background-color: white;
   max-width: 1200px;
+  animation: fadeIn 0.5s ease, slideIn 0.5s ease;
 }
 
 .leaderboard-header {
@@ -80,8 +101,10 @@ body {
   border: 2px solid var(--gray);
   width: 100%;
   max-height: 300px;
-  overflow-y: scroll;
+  overflow: scroll;
   box-shadow: inset 0 -4px 6px rgba(0, 0, 0, 0.4);
+  scrollbar-width: thin;
+  scrollbar-color: var(--light-blue) var(--gray);
 }
 
 .leaderboard-scores__list .scores-li {
@@ -91,6 +114,21 @@ body {
   display: flex;
   justify-content: space-between;
   font-weight: 600;
+  animation: fadeIn 0.5s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 1);
+}
+
+.leaderboard-scores__list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.leaderboard-scores__list::-webkit-scrollbar-track {
+  background: var(--gray);
+}
+
+.leaderboard-scores__list::-webkit-scrollbar-thumb {
+  background-color: var(--light-blue);
+  border-radius: 6px;
 }
 
 .leaderboard-scores__list .scores-li:hover {
@@ -177,54 +215,6 @@ button:hover,
 button:focus {
   background-color: var(--dark-blue);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes slideIn {
-  0% {
-    transform: translateY(20px);
-  }
-
-  100% {
-    transform: translateY(0);
-  }
-}
-
-.leaderboard {
-  animation: fadeIn 0.5s ease, slideIn 0.5s ease;
-}
-
-.leaderboard-scores__list .scores-li {
-  animation: fadeIn 0.5s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 1);
-}
-
-/* Add smooth scrolling to the scores list */
-.leaderboard-scores__list {
-  scrollbar-width: thin;
-  scrollbar-color: var(--light-blue) var(--gray);
-}
-
-.leaderboard-scores__list::-webkit-scrollbar {
-  width: 6px;
-}
-
-.leaderboard-scores__list::-webkit-scrollbar-track {
-  background: var(--gray);
-}
-
-.leaderboard-scores__list::-webkit-scrollbar-thumb {
-  background-color: var(--light-blue);
-  border-radius: 6px;
 }
 
 @media screen and (min-width: 769px) {
