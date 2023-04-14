@@ -10,20 +10,21 @@
   --white-gray: #f5f5f5;
   --light-gray: lightgray;
   --aqua: #00ffff;
+  --light-blue: #007bff;
+  --dark-blue: #0056b3;
 }
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: var(--white-gray);
-  font-size: 10px;
-  background-color: var(--aqua)
+  background-color: var(--aqua);
+  font-size: 16px;
 }
 
 .leaderboard {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 22px 0 0 18px;
+  padding: 22px 0 0 18px;
 }
 
 .leaderboard-header {
@@ -31,7 +32,7 @@ body {
   flex-direction: row;
   align-items: center;
   margin-bottom: 25px;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
 }
 
 .leaderboard-scores {
@@ -52,7 +53,7 @@ body {
 }
 
 .title-button h2 {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
 }
 
 .leaderboard-scores__list {
@@ -60,6 +61,7 @@ body {
   flex-direction: column;
   border: 2px solid black;
   width: 65%;
+  max-height: 300px;
   overflow-y: scroll;
 }
 
@@ -107,12 +109,18 @@ button {
   justify-content: center;
   align-items: center;
   width: 100px;
-  height: 30px;
+  height: 40px;
   border: 2px solid black;
   border-radius: 5px;
-  background-color: var(--white-gray);
+  background-color: var(--light-blue);
   font-size: 1.2rem;
   cursor: pointer;
+  border: none;
+  color: var(--white-gray);
+}
+
+button:hover {
+  background-color: var(--dark-blue);
 }
 
 @media screen and (min-width: 769px) {
