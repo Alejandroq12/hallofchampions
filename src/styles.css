@@ -133,6 +133,7 @@ body {
   border-radius: 5px;
   padding: 5px;
   font-size: 1rem;
+  font-weight: 600;
   transition: border-color 0.2s ease;
 }
 
@@ -140,6 +141,11 @@ body {
   outline: none;
   border-color: var(--dark-blue);
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  transition: border-color 0.3s ease;
+}
+
+.leaderboard-form input:hover {
+  border-color: var(--dark-blue);
 }
 
 .submit-scores__btn {
@@ -163,9 +169,14 @@ button {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-button:hover {
+button:focus {
+  outline: none;
+}
+
+button:hover,
+button:focus {
   background-color: var(--dark-blue);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 @keyframes fadeIn {
@@ -192,6 +203,7 @@ button:hover {
 
 .leaderboard-scores__list .scores-li {
   animation: fadeIn 0.5s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 1);
 }
 
 /* Add smooth scrolling to the scores list */
