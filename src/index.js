@@ -1,73 +1,59 @@
 import './styles.css';
 
-async function createNewGame(gameName) {
-  const response = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/', {
+const gameId = 'YOUR_FIXED_GAME_ID';
+
+const API_BASE_URL = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/';
+
+const createNewScore = async (name, score) => {
+  const response = await fetch(`${API_BASE_URL}games/${gameId}/scores/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ name: gameName }),
+    body: JSON.stringify({
+      user: name,
+      score,
+    }),
+  });
+  return response.json();
+};
+
+const getScores = async () => {
+  const response = await fetch(`${API_BASE_URL}games/${gameId}/scores/`);
+  return response.json();
+};
+
+const refreshScores = async () => {
+  const scoresData = await getScores();
+  const scoresList = document.querySelector('.leaderboard-scores__list');
+  scoresList.innerHTML = '';
+
+  // Sort the scores in descending order
+  const sortedScores = scoresData.result.sort((a, b) => b.score - a.score);
+
+  // Iterate over the sorted scores and display them
+  sortedScores.forEach((scoreItem) => {
+    const listItem = document.createElement('li');
+    listItem.classList.add('scores-li');
+    listItem.textContent = `${scoreItem.user}: ${scoreItem.score}`;
+    scoresList.appendChild(listItem);
+  });
+};
+
+document
+  .querySelector('.leaderboard-refresh__btn')
+  .addEventListener('click', () => {
+    refreshScores();
   });
 
-  const result = await response.json();
-  return result;
-}
+document
+  .querySelector('.leaderboard-form')
+  .addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const name = event.target.name.value;
+    const score = event.target.score.value;
 
-(async () => {
-  const gameName = 'My Cool New Game';
-  const game = await createNewGame(gameName);
-  const gameId = game.result.split(': ')[1];
-
-  async function getScores(gameId) {
-    const response = await fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameId}/scores/`);
-    const result = await response.json();
-    return result.result;
-  }
-
-  function displayScores(scores) {
-    const scoresList = document.querySelector('.leaderboard-scores__list');
-    scoresList.innerHTML = '';
-
-    scores.forEach((score) => {
-      const listItem = document.createElement('li');
-      listItem.classList.add('scores-li');
-      listItem.textContent = `${score.user}: ${score.score}`;
-      scoresList.appendChild(listItem);
-    });
-  }
-
-  const refreshButton = document.querySelector('.leaderboard-refresh__btn');
-  refreshButton.addEventListener('click', async () => {
-    const scores = await getScores(gameId);
-    displayScores(scores);
+    await createNewScore(name, score);
+    event.target.reset();
+    refreshScores();
   });
-
-  async function saveScore(gameId, userName, userScore) {
-    const response = await fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameId}/scores/`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ user: userName, score: userScore }),
-    });
-
-    const result = await response.json();
-    return result.result;
-  }
-
-  const form = document.querySelector('.leaderboard-form');
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const userName = document.getElementById('name').value;
-    const userScore = document.getElementById('score').value;
-
-    await saveScore(gameId, userName, userScore);
-
-    document.getElementById('name').value = '';
-    document.getElementById('score').value = '';
-
-    const scores = await getScores(gameId);
-    displayScores(scores);
-  });
-})();
