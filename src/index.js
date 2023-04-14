@@ -1,6 +1,6 @@
 import './styles.css';
 
-const gameId = 'YOUR_FIXED_GAME_ID';
+const gameId = 'FIXED_GAME_ID';
 
 const API_BASE_URL = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/';
 
