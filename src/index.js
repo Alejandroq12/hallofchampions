@@ -1,6 +1,6 @@
 import './styles.css';
 
-const gameId = 'FIXED_GAME_ID';
+const gameId = 'FIXED_GAME_ID2';
 
 const API_BASE_URL = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/';
 const SCORES_PER_PAGE = 10;
@@ -21,15 +21,17 @@ const createNewScore = async (name, score) => {
 };
 
 const getScores = async (page, perPage) => {
-  const response = await fetch(
-    `${API_BASE_URL}games/${gameId}/scores/?page=${page}&per_page=${perPage}`
-  );
+  const response = await fetch(`${API_BASE_URL}games/${gameId}/scores/?page=${page}&per_page=${perPage}`);
   return response.json();
 };
 
-const refreshScores = async (page) => {
+const refreshScores = async (page, clearList = true) => {
   const scoresData = await getScores(page, SCORES_PER_PAGE);
   const scoresList = document.querySelector('.leaderboard-scores__list');
+
+  if (clearList) {
+    scoresList.innerHTML = '';
+  }
 
   // Sort the scores in descending order
   const sortedScores = scoresData.result.sort((a, b) => b.score - a.score);
@@ -59,6 +61,7 @@ document
   .addEventListener('click', () => {
     refreshScores(currentPage);
   });
+
 document
   .querySelector('.leaderboard-form')
   .addEventListener('submit', async (event) => {
@@ -84,6 +87,6 @@ const isNearBottom = () => {
 window.addEventListener('scroll', () => {
   if (isNearBottom()) {
     currentPage += 1;
-    refreshScores(currentPage);
+    refreshScores(currentPage, false);
   }
 });
