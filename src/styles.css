@@ -129,7 +129,6 @@ body {
   display: flex;
   justify-content: space-between;
   font-weight: 600;
-  animation: fadeIn 0.5s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 1);
   transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
   animation: fadeIn 0.5s ease, slideUp 0.5s ease;
@@ -285,7 +284,7 @@ button:focus {
 
   .leaderboard-add__score {
     width: 80%;
-    margin-top: 20px;  
+    margin-top: 20px;
   }
 
   .title-button {
