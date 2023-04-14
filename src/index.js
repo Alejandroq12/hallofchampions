@@ -1,8 +1,10 @@
 import './styles.css';
 
-const gameId = 'FIXED_GAME_ID';
+const gameId = 'FIXED_GAME_ID2';
 
 const API_BASE_URL = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/';
+const SCORES_PER_PAGE = 10;
+let currentPage = 1;
 
 const createNewScore = async (name, score) => {
   const response = await fetch(`${API_BASE_URL}games/${gameId}/scores/`, {
@@ -18,15 +20,18 @@ const createNewScore = async (name, score) => {
   return response.json();
 };
 
-const getScores = async () => {
-  const response = await fetch(`${API_BASE_URL}games/${gameId}/scores/`);
+const getScores = async (page, perPage) => {
+  const response = await fetch(`${API_BASE_URL}games/${gameId}/scores/?page=${page}&per_page=${perPage}`);
   return response.json();
 };
 
-const refreshScores = async () => {
-  const scoresData = await getScores();
+const refreshScores = async (page, clearList = true) => {
+  const scoresData = await getScores(page, SCORES_PER_PAGE);
   const scoresList = document.querySelector('.leaderboard-scores__list');
-  scoresList.innerHTML = '';
+
+  if (clearList) {
+    scoresList.innerHTML = '';
+  }
 
   // Sort the scores in descending order
   const sortedScores = scoresData.result.sort((a, b) => b.score - a.score);
@@ -40,10 +45,21 @@ const refreshScores = async () => {
   });
 };
 
+const showSuccessMessage = () => {
+  const messageContainer = document.createElement('div');
+  messageContainer.classList.add('success-message');
+  messageContainer.textContent = 'Score successfully added!';
+  document.body.appendChild(messageContainer);
+
+  setTimeout(() => {
+    document.body.removeChild(messageContainer);
+  }, 3000);
+};
+
 document
   .querySelector('.leaderboard-refresh__btn')
   .addEventListener('click', () => {
-    refreshScores();
+    refreshScores(currentPage);
   });
 
 document
@@ -53,8 +69,24 @@ document
     const name = event.target.name.value;
     const score = event.target.score.value;
 
-    await createNewScore(name, score);
+    const response = await createNewScore(name, score);
+    if (response.result === 'Leaderboard score created correctly.') {
+      showSuccessMessage();
+    }
     event.target.reset();
-  // refreshScores(); if this lines is uncommented,
-  // the scores will be refreshed after each submission
   });
+
+const isNearBottom = () => {
+  const { scrollHeight } = document.documentElement;
+  const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+  const { clientHeight } = document.documentElement;
+
+  return scrollTop + clientHeight >= scrollHeight - 50;
+};
+
+window.addEventListener('scroll', () => {
+  if (isNearBottom()) {
+    currentPage += 1;
+    refreshScores(currentPage, false);
+  }
+});
