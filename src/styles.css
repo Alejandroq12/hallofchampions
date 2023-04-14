@@ -194,6 +194,25 @@ button:hover {
   animation: fadeIn 0.5s ease;
 }
 
+/* Add smooth scrolling to the scores list */
+.leaderboard-scores__list {
+  scrollbar-width: thin;
+  scrollbar-color: var(--light-blue) var(--gray);
+}
+
+.leaderboard-scores__list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.leaderboard-scores__list::-webkit-scrollbar-track {
+  background: var(--gray);
+}
+
+.leaderboard-scores__list::-webkit-scrollbar-thumb {
+  background-color: var(--light-blue);
+  border-radius: 6px;
+}
+
 @media screen and (min-width: 769px) {
   .leaderboard {
     display: flex;
