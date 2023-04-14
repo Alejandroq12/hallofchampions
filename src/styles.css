@@ -12,6 +12,7 @@
   --aqua: #00ffff;
   --light-blue: #007bff;
   --dark-blue: #0056b3;
+  --gray: #6c757d;
 }
 
 html, body {
@@ -38,6 +39,8 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   overflow: hidden;
+  background-color: white;
+  max-width: 1200px;
 }
 
 .leaderboard-header {
@@ -46,6 +49,7 @@ body {
   align-items: center;
   margin: 35px 0 20px 0;
   font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .leaderboard-scores {
@@ -67,6 +71,7 @@ body {
 
 .title-button h2 {
   font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .leaderboard-scores__list {
@@ -77,13 +82,15 @@ body {
   max-height: 300px;
   overflow-y: scroll;
   box-shadow: inset 0 -4px 6px rgba(0, 0, 0, 0.4);
-
 }
 
 .leaderboard-scores__list .scores-li {
   list-style: none;
   margin: 4px 0 4px 0;
   padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
 }
 
 .leaderboard-scores__list .scores-li:hover {
@@ -95,7 +102,7 @@ body {
 }
 
 .leaderboard-scores__list .scores-li:nth-child(odd) {
-  background-color: gray;
+  background-color: var(--gray)
 }
 
 .leaderboard-scores__list .scores-li:nth-child(even) {
@@ -114,6 +121,8 @@ body {
 .leaderboard-add__score h2 {
   font-size: 1.5rem;
   margin: 0 0 12px 0;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
 .leaderboard-form input {
@@ -123,6 +132,13 @@ body {
   border: 2px solid black;
   border-radius: 5px;
   padding: 5px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.leaderboard-form input:focus {
+  outline: none;
+  border-color: var(--dark-blue);
 }
 
 .submit-scores__btn {
@@ -142,6 +158,7 @@ button {
   border: none;
   color: var(--white-gray);
   transition: background-color 0.2s ease, color 0.2s ease;
+  font-weight: 600;
 }
 
 button:hover {
@@ -154,9 +171,10 @@ button:hover {
     flex-direction: row;
     justify-content: space-between;
     width: 90%;
+    max-width: 1200px;
     margin: 60px auto;
-    padding: 30px;
-    border-radius: 5px;
+    padding: 40px;
+    border-radius: 10px;
   }
 
   .leaderboard-scores {
@@ -167,6 +185,7 @@ button:hover {
   .leaderboard-header {
     font-size: 2.2rem;
     margin: 0 0 50px 0;
+    letter-spacing: 2px;
   }
 
   .leaderboard-add__score {
@@ -174,11 +193,11 @@ button:hover {
   }
 
   .title-button {
-    margin-bottom: 30px;
+    margin-bottom: 35px;
   }
 
   .leaderboard-add__score h2 {
-    margin-bottom: 32px;
+    margin-bottom: 35px;
   }
 
   .submit-scores__btn {
