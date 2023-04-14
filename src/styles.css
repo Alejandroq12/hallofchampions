@@ -23,8 +23,8 @@ body {
 body {
   font-family: 'Roboto', sans-serif;
   background: linear-gradient(to right, var(--white-gray), var(--light-gray));
-  font-size: 16px;
-  line-height: 1.5;
+  font-size: 18px;
+  line-height: 1.6;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -55,6 +55,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 50px;
   padding: 55px 10px 35px 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
@@ -62,15 +63,19 @@ body {
   background-color: white;
   max-width: 1200px;
   animation: fadeIn 0.5s ease, slideIn 0.5s ease;
+  transition: box-shadow 0.3s ease;
 }
 
-.leaderboard-header {
+.leaderboard-header h1 {
+  font-family: 'Roboto Condensed', sans-serif;
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 35px 0 20px 0;
-  font-size: 1.5rem;
+  margin: 60px 0 20px 0;
+  font-size: 2rem;
   font-weight: bold;
+  letter-spacing: 3px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .leaderboard-scores {
@@ -107,6 +112,16 @@ body {
   scrollbar-color: var(--light-blue) var(--gray);
 }
 
+@keyframes slideUp {
+  0% {
+    transform: translateY(20px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
 .leaderboard-scores__list .scores-li {
   list-style: none;
   margin: 4px 0 4px 0;
@@ -116,6 +131,8 @@ body {
   font-weight: 600;
   animation: fadeIn 0.5s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 1);
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  animation: fadeIn 0.5s ease, slideUp 0.5s ease;
 }
 
 .leaderboard-scores__list::-webkit-scrollbar {
@@ -129,6 +146,11 @@ body {
 .leaderboard-scores__list::-webkit-scrollbar-thumb {
   background-color: var(--light-blue);
   border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.leaderboard-scores__list::-webkit-scrollbar-thumb:hover {
+  background-color: var(--dark-blue);
 }
 
 .leaderboard-scores__list .scores-li:hover {
@@ -137,6 +159,7 @@ body {
   cursor: pointer;
   transform: scale(1.02);
   transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .leaderboard-scores__list .scores-li:nth-child(odd) {
@@ -157,8 +180,8 @@ body {
 }
 
 .leaderboard-add__score h2 {
-  font-size: 1.5rem;
-  margin: 0 0 12px 0;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
   font-weight: 600;
   letter-spacing: 1px;
 }
@@ -176,14 +199,16 @@ body {
 }
 
 .leaderboard-form input:focus {
-  outline: none;
+  outline: 2px solid var(--dark-blue);
   border-color: var(--dark-blue);
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
   transition: border-color 0.3s ease;
+  background-color: var(--white-gray);
 }
 
 .leaderboard-form input:hover {
   border-color: var(--dark-blue);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
 }
 
 .submit-scores__btn {
@@ -205,6 +230,7 @@ button {
   transition: background-color 0.2s ease, color 0.2s ease;
   font-weight: 600;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-image: linear-gradient(135deg, var(--light-blue) 0%, var(--dark-blue) 100%);
 }
 
 button:focus {
@@ -215,6 +241,22 @@ button:hover,
 button:focus {
   background-color: var(--dark-blue);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-image: linear-gradient(135deg, var(--dark-blue) 0%, var(--light-blue) 100%);
+  transition: background-image 0.3s ease;
+}
+
+.success-message {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease, slideIn 0.5s ease;
+  z-index: 1000;
 }
 
 @media screen and (min-width: 769px) {
@@ -225,24 +267,25 @@ button:focus {
     width: 90%;
     max-width: 1200px;
     margin: 60px auto;
-    padding: 40px;
+    padding: 30px 20px;
     border-radius: 10px;
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease, margin 0.3s ease;
   }
 
   .leaderboard-scores {
-    margin: 0;
-    padding-right: 90px;
+    padding-bottom: 20px;
   }
 
-  .leaderboard-header {
-    font-size: 2.2rem;
-    margin: 0 0 50px 0;
+  .leaderboard-header h1 {
+    font-size: 3rem;
+    margin-bottom: 30px;
     letter-spacing: 2px;
   }
 
   .leaderboard-add__score {
-    margin: 240px 0 0 18px;
+    width: 80%;
+    margin-top: 20px;  
   }
 
   .title-button {
