@@ -1,6 +1,6 @@
 import './styles.css';
 
-const gameId = 'FIXED_GAME_ID2';
+const gameId = 'FIXED_GAME_ID3';
 
 const API_BASE_URL = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/';
 const SCORES_PER_PAGE = 10;
@@ -26,7 +26,11 @@ const getScores = async (page, perPage) => {
 };
 
 const refreshScores = async (page, clearList = true) => {
-  const scoresData = await getScores(page, SCORES_PER_PAGE);
+  if (clearList) {
+    currentPage = 1;
+  }
+
+  const scoresData = await getScores(currentPage, SCORES_PER_PAGE);
   const scoresList = document.querySelector('.leaderboard-scores__list');
 
   if (clearList) {
@@ -59,7 +63,7 @@ const showSuccessMessage = () => {
 document
   .querySelector('.leaderboard-refresh__btn')
   .addEventListener('click', () => {
-    refreshScores(currentPage);
+    refreshScores(currentPage, true);
   });
 
 document
@@ -90,3 +94,4 @@ window.addEventListener('scroll', () => {
     refreshScores(currentPage, false);
   }
 });
+refreshScores(currentPage);
