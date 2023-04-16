@@ -1,7 +1,7 @@
 {
-  "name": "leaderboard",
+  "name": "hallofchampions",
   "version": "1.0.0",
-  "description": "The leaderboard website displays scores submitted by different players. It also allows you to submit your score. All data is preserved thanks to the external Leaderboard API service.",
+  "description": "The Hall Of Champions website displays scores submitted by different players. It also allows you to submit your score. All data is preserved thanks to the external Leaderboard API service.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
