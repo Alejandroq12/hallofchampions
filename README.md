@@ -1,11 +1,11 @@
-<a name="readme-top">Leaderboard</a>
+<a name="readme-top">Hall Of Champions</a>
 
 
 <div align="center">
   <img src="./assets/logo/logo.png" alt="logo" width="600"  height="auto" />
   <br/>
 
-  <h3><b>Leaderboard</b></h3>
+  <h3><b>Hall Of Champions</b></h3>
 
 </div>
 
@@ -14,7 +14,7 @@
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 Leaderboard ](#-leaderboard-)
+- [📖 Hall Of Champions ](#-hall-of-champions-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -38,9 +38,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Leaderboard <a name="about-project"></a>
+# 📖 Hall Of Champions <a name="about-project"></a>
 
-🚀 The leaderboard website displays scores submitted by different players. It also allows you to submit your score. All data is preserved thanks to the external Leaderboard API service.
+🚀 The Hall Of Champions website displays scores submitted by different players. It also allows you to submit your score. All data is preserved thanks to the external Leaderboard API service.
 
 ## 🛠 Built With <a name="built-with"></a>
 
